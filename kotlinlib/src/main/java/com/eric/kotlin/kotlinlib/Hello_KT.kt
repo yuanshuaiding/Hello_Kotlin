@@ -9,6 +9,26 @@ package com.eric.kotlin.kotlinlib
  */
 
 //kotlin 1.3之后main入口方法可以省略参数,666
-fun main(){
+fun main() {
     println("hello world from kotlin")
+    val hello_KT = Hello_KT()
+    hello_KT.hi()
+}
+
+class Hello_KT {
+    fun hi() {
+        println(Hello_KT::class.simpleName)
+    }
+}
+
+//fun main(args: Array<String>) {
+//    args.forEach(::println)
+//
+//    args.map(::println)
+//}
+
+fun main(vararg args: String) {
+    args.flatMap { it.split("l") }.map{
+        println("$it ${it.plus("666")}")
+    }
 }

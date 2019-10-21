@@ -16,7 +16,7 @@ import mvc.interfaces.IView
 class MVCFragment : Fragment(), IView {
     companion object {
 
-        fun newInstance(): Fragment {
+        fun newInstance(): MVCFragment {
             return MVCFragment()
         }
     }

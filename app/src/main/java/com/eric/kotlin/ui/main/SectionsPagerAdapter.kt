@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.eric.kotlin.R
 import mvc.MVCFragment
 import mvp.MVPFragment
+import mvvm.MVVMFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_mvc,
@@ -28,6 +29,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             return MVCFragment.newInstance()
         } else if (position == 1) {
             return MVPFragment.newInstance()
+        } else if (position == 2) {
+            return MVVMFragment.newInstance()
         } else {
             return PlaceholderFragment.newInstance(position + 1)
         }

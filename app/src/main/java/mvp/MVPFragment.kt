@@ -12,6 +12,10 @@ import kotlinx.android.synthetic.main.frag_design_mode.*
 import mvp.interfaces.IPresenter
 import mvp.interfaces.IVeiw
 
+/**
+ * mvp模式中的view,可以在这里完成view关联presenter,presenter关联view,presenter关联model,model关联presenter.
+ * 注意,view和model没有关联,全部通过presenter中转
+ */
 class MVPFragment : Fragment(), IVeiw {
     companion object {
         fun newInstance(): MVPFragment {
@@ -40,11 +44,12 @@ class MVPFragment : Fragment(), IVeiw {
         if (!this::presenter.isInitialized) {
             setPresenter(MVPPresenter())
         }
+        //presenter关联view
+        presenter.setView(this)
+
         //model关联presenter
         val model = MVPModel()
         model.setPresenter(presenter)
-        //presenter关联view
-        presenter.setView(this)
         //presnter关联model
         presenter.setModel(model)
 

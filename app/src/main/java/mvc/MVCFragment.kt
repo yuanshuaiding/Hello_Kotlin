@@ -13,6 +13,9 @@ import mvc.interfaces.IControl
 import mvc.interfaces.IModel
 import mvc.interfaces.IView
 
+/**
+ * mvc模式中的View,负责显示和用户交互,可以在这里完成view关联control,control关联model,model关联view操作
+ */
 class MVCFragment : Fragment(), IView {
     companion object {
 

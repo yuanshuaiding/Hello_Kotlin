@@ -20,4 +20,10 @@
             tools:layout_constraintLeft_creator="1"
             tools:layout_constraintTop_creator="1" />
 
+    <com.eric.kotlin.view.VerticalFlipperLayout
+            android:id="@+id/flipper"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

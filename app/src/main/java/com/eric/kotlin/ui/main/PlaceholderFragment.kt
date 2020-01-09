@@ -1,14 +1,16 @@
 package com.eric.kotlin.ui.main
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
 import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import com.eric.kotlin.R
+import com.eric.kotlin.view.VerticalFlipperLayout
 
 /**
  * A placeholder fragment containing a simple view.
@@ -33,6 +35,33 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.text.observe(this, Observer<String> {
             textView.text = it
         })
+        val flipperLayout: VerticalFlipperLayout = root.findViewById(R.id.flipper)
+        flipperLayout.setRollingType(VerticalFlipperLayout.BOTTOM_TOP)
+        flipperLayout.setAdapter(object : BaseAdapter() {
+            override fun getItem(position: Int): Any {
+                return position
+            }
+
+            override fun getItemId(position: Int): Long {
+                return position.toLong()
+            }
+
+            override fun getCount(): Int {
+                return 5
+            }
+
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+                val view: View = convertView ?: LayoutInflater.from(context).inflate(
+                    R.layout.item_card,
+                    parent,
+                    false
+                )
+                view.findViewById<TextView>(R.id.tv_flip).setText("" + position)
+                return view
+            }
+
+        })
+        flipperLayout.startFlipping()
         return root
     }
 

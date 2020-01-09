@@ -32,6 +32,7 @@ class MVVMFragment : Fragment() {
         viewModel.setModel(model)
         //model关联viewmodel
         model.setViewModel(viewModel)
+        //添加观察者,监测LiveData数据变化
         viewModel.resultLiveData.observe(this, Observer {
             tvResult.setText(it.toString())
             if (TextUtils.isEmpty(it)) {

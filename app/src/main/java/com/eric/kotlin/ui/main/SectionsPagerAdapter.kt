@@ -12,7 +12,9 @@ import mvvm.MVVMFragment
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_mvc,
     R.string.tab_text_mvp,
+    R.string.tab_text_mvvm,
     R.string.tab_text_mvvm
+
 )
 
 /**
@@ -42,6 +44,6 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 3
+        return 4
     }
 }

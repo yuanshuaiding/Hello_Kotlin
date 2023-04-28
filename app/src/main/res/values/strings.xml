@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Hello_Kotlin</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="tab_text_mvc">MVC</string>
+    <string name="tab_text_mvp">MVP</string>
+    <string name="tab_text_mvvm">MVVM</string>
+</resources>

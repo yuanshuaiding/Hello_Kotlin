@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference"/>
+        <attr name="metaButtonBarButtonStyle" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="VerticalFlipperLayout">
+        <!--滚动方向-->
+        <attr name="flip_type" format="enum">
+            <enum name="top2bottom" value="0" />
+            <enum name="bottom2top" value="1" />
+        </attr>
+        <!--滚动时间间隔  毫秒 millisecond  default 1000-->
+        <attr name="interval" format="integer" />
+        <!--动画时间-->
+        <attr name="duration" format="integer" />
+    </declare-styleable>
+
+</resources>

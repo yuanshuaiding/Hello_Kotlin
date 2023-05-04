@@ -2,12 +2,12 @@ package com.eric.kotlin.kotlinlib.coroutine
 
 import kotlinx.coroutines.*
 
-fun main() {
+fun main(any: Any) {
     val corroutineScope = CoroutineScope(Dispatchers.Default)
     corroutineScope.launch {
         launch {
             delay(1000)
-            println("first:"+Thread.currentThread().name)
+            println("first launch:"+Thread.currentThread().name)
         }
         //切换线程
         withContext(Dispatchers.Unconfined) {
@@ -16,7 +16,7 @@ fun main() {
         }
         launch {
             //切回原线程
-            println("second:"+Thread.currentThread().name)
+            println("second launch:"+Thread.currentThread().name)
         }
         val hi = suspendTest("hello")
         println(hi)

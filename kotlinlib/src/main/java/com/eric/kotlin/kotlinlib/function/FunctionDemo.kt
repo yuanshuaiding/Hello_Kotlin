@@ -8,12 +8,17 @@ fun main() {
     test1("tomm1")
     test2(name = "tom2")
 
-    //2.高阶函数(函数的参数或返回值是函数类型)
-    val ret = hignlevelFun("eric", fun String.(times: Int): String {
-        return repeat(times)
+    //2.高阶函数(函数的参数或返回值是函数类型)[注意此处的高阶函数均使用匿名函数来实现]
+    val ret1 = normalHighLevelFun("eric", fun(str: String, times: Int): String {
+        val newStr="${str}1"
+        return newStr.repeat(times)
     })
-    println(ret)
-
+    val ret2 = highLevelFun("eric", fun String.(times: Int): String {
+        //此处由于高阶函数限定在String类型下执行，相当于调用了String对象，即传入高阶函数String对象的repeat()，此处的this指的也是该对象，可以省略
+        return this.repeat(times)
+    })
+    println(ret1)
+    println(ret2)
 
 
 }
@@ -33,7 +38,16 @@ fun test2(age: Int = 18, name: String) {
 }
 
 //高阶函数定义
-fun hignlevelFun(name: String?, f: String.(Int) -> String): String {
+//普通的高级函数
+fun normalHighLevelFun(name: String?, f: (String, Int) -> String): String {
+    return name?.let {
+        f(name, 10)
+    } ?: ""
+
+}
+
+//使用String拓展函数的高阶函数
+fun highLevelFun(name: String?, f: String.(Int) -> String): String {
     return name?.let {
         f(name, 10)
     } ?: ""

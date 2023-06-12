@@ -94,6 +94,8 @@ fun main() {
 
     println(obj)
 
+    println("obj.hello=${obj.hello}")
+
     //2. 带超类的object表达式（object关键字后用“:”分割，后面跟被继承的类或接口，多个被继承者使用“,”分割）
     //继承父类UserEvent的对象表达式
     val obj2 = object : UserEvent() {

@@ -1,8 +1,8 @@
-package com.eric.kotlin.kotlinlib.coroutine
+package com.eric.kotlin.kotlinlib.coroutine.demo
 
 import kotlinx.coroutines.*
 
-fun main(any: Any) {
+fun main() {
     val corroutineScope = CoroutineScope(Dispatchers.Default)
     corroutineScope.launch {
         launch {

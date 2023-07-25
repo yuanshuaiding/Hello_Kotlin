@@ -1,4 +1,4 @@
-package com.eric.kotlin.kotlinlib.coroutine
+package com.eric.kotlin.kotlinlib.coroutine.exception
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -96,7 +96,9 @@ fun main(args: Array<String>) {
         delay(1500)
         job2.cancel() // 由于我们使用了SupervisorJob来创建协程，因此即使任务2失败了，任务1和任务3仍然可以继续执行
 
-        supervisorJob.children.forEach { it.join() } // 等待任务结束
+        supervisorJob.children.forEach {
+            it.join()
+        } // 等待任务结束
         println("All tasks completed")
     }
 

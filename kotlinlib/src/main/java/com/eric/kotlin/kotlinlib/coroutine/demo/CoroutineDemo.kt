@@ -6,13 +6,16 @@ fun main() {
     val corroutineScope = CoroutineScope(Dispatchers.Default)
     corroutineScope.launch {
         launch {
+            val a=10
+            println("first launch start:"+Thread.currentThread().name)
             delay(1000)
-            println("first launch:"+Thread.currentThread().name)
+            println("first launch end:"+Thread.currentThread().name)
         }
         //切换线程
         withContext(Dispatchers.Unconfined) {
+            println("delay 500 start:"+Thread.currentThread().name)
             delay(500)
-            println("delay 500:"+Thread.currentThread().name)
+            println("delay 500 end:"+Thread.currentThread().name)
         }
         launch {
             //切回原线程
